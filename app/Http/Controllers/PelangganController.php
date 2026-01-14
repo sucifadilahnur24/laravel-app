@@ -49,22 +49,34 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $row = Pelanggan::findOrFail($id);
+        return view('pelanggan.edit', compact('row'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
-    }
+{
+    $row = Pelanggan::findOrFail($id);
+    $row->update([
+        'pelanggan_nama'   => $request->pelanggan_nama,
+        'pelanggan_no_hp'  => $request->pelanggan_no_hp,
+        'pelanggan_alamat' => $request->pelanggan_alamat,
+    ]);
+
+    return redirect('/pelanggan');
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $row = Pelanggan::FindOrFail($id);
+        $row->delete();
+
+        return redirect('/pelanggan');
     }
 }
