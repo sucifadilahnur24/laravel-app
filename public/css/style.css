@@ -1,0 +1,143 @@
+
+body {
+    overflow-x: hidden;
+    background-color: #faf7f2;
+    color: #4a3f35;
+}
+
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+
+    
+    background: linear-gradient(180deg, #8d6e63, #d7ccc8);
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+
+.list-group-item-action {
+    background-color: transparent;
+    color: #fff;
+    border: 0;
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.list-group-item-action.active {
+    background-color: rgba(255, 255, 255, 0.35);
+    color: #5d4037;
+    font-weight: 600;
+}
+
+#sidebar-wrapper .list-group-item i {
+    font-size: 1.1rem;
+    margin-right: 8px;
+}
+
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+h2 {
+    font-weight: 600;
+    color: #6d4c41;
+    margin-bottom: 16px;
+}
+
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #8d6e63, #bcaaa4);
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+
+.table {
+    background-color: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* HEADER KOLOM (NO, NAMA, DLL) */
+.table thead {
+    background: linear-gradient(90deg, #bcaaa4, #efebe9);
+}
+
+.table thead th {
+    color: #4e342e;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    text-align: center;
+}
+
+.table td {
+    font-size: 14px;
+    vertical-align: middle;
+    color: #4a3f35;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f5f1ec;
+}
+
+
+.badge {
+    padding: 6px 12px;
+    font-size: 13px;
+}

@@ -35,6 +35,18 @@
                              <a class="nav-link" href="{{ url('/pelanggan') }}">Pelanggan</a>
                         </li>
                         @endauth
+                        
+                        @auth
+                        <li class="nav-item">
+                             <a class="nav-link" href="{{ url('/paket') }}">Paket</a>
+                        </li>
+                        @endauth
+
+                        @auth
+                        <li class="nav-item">
+                             <a class="nav-link" href="{{ url('/pemesanan') }}">Pemesanan</a>
+                        </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
