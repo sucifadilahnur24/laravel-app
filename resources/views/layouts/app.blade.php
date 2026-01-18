@@ -7,92 +7,84 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'CateringKostFoodie') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
-   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> 
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <div id="app">
+
+        {{-- NAVBAR TETAP ADA, TAPI BERSIH --}}
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'CateringKostFoodie') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+                {{-- TIDAK ADA JUDUL / BRAND DI ATAS --}}
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    
+
+                    {{-- MENU KHUSUS USER LOGIN --}}
                     <ul class="navbar-nav me-auto">
                         @auth
                         <li class="nav-item">
-                             <a class="nav-link" href="{{ url('/pelanggan') }}">Pelanggan</a>
+                            <a class="nav-link" href="{{ url('/pelanggan') }}">Pelanggan</a>
                         </li>
-                        @endauth
-                        
-                        @auth
                         <li class="nav-item">
-                             <a class="nav-link" href="{{ url('/paket') }}">Paket</a>
+                            <a class="nav-link" href="{{ url('/paket') }}">Paket</a>
                         </li>
-                        @endauth
-
-                        @auth
                         <li class="nav-item">
-                             <a class="nav-link" href="{{ url('/pemesanan') }}">Pemesanan</a>
+                            <a class="nav-link" href="{{ url('/pemesanan') }}">Pemesanan</a>
                         </li>
                         @endauth
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    {{-- KANAN: HANYA USER LOGIN --}}
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @auth
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                               role="button" data-bs-toggle="dropdown">
+                                {{ Auth::user()->name }}
+                            </a>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    Logout
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endauth
                     </ul>
+
                 </div>
             </div>
         </nav>
 
+        {{-- ISI HALAMAN (LOGIN CARD DI SINI) --}}
         <main class="py-4">
             <div class="container">
-                @yield('content')</div>
+                @yield('content')
+            </div>
         </main>
+
     </div>
-    <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
+
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

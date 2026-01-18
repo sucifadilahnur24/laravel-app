@@ -141,3 +141,160 @@ h2 {
     padding: 6px 12px;
     font-size: 13px;
 }
+
+/* ================= LOGIN PAGE NAVBAR FIX ================= */
+
+/* Khusus halaman login & register */
+body:has(form[action*="login"]),
+body:has(form[action*="register"]) {
+    background-color: #faf7f5;
+}
+
+/* Navbar jadi center */
+body:has(form[action*="login"]) nav .container,
+body:has(form[action*="register"]) nav .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Brand di tengah */
+body:has(form[action*="login"]) .navbar-brand,
+body:has(form[action*="register"]) .navbar-brand {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Menu login & register satu baris */
+body:has(form[action*="login"]) .navbar-nav,
+body:has(form[action*="register"]) .navbar-nav {
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+/* Login container full tengah */
+body:has(form[action*="login"]) main .container,
+body:has(form[action*="register"]) main .container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card login */
+body:has(form[action*="login"]) .card,
+body:has(form[action*="register"]) .card {
+    max-width: 420px;
+    width: 100%;
+}
+
+/*LOGIN PAGE */
+main .container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+main .container > .row {
+    width: 100%;
+    justify-content: center;
+}
+
+main .container > .row > .col-md-8 {
+    max-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+main .container > .row > .col-md-8 > .card {
+    width: 100%;
+    max-width: 620px; 
+    border-radius: 22px;
+    box-shadow: 0 20px 45px rgba(109, 76, 65, 0.35);
+    border: none;
+}
+
+
+main .container > .row > .col-md-8 > .card .card-header {
+    background: linear-gradient(90deg, #8d6e63, #bcaaa4);
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 22px;
+    border-radius: 22px 22px 0 0;
+}
+
+
+main .container > .row > .col-md-8 > .card .card-body {
+    padding: 40px;
+    text-align: center;
+}
+
+
+main .container > .row > .col-md-8 > .card .col-form-label {
+    text-align: center;
+    font-weight: 500;
+    color: #6d4c41;
+}
+
+
+main .container > .row > .col-md-8 > .card .form-control {
+    text-align: center;
+    border-radius: 12px;
+}
+
+
+main .container > .row > .col-md-8 > .card .form-check {
+    display: flex;
+    justify-content: center;
+}
+
+
+main .container > .row > .col-md-8 > .card button.btn-primary {
+    margin-top: 15px;
+    padding: 12px 40px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+
+main .container > .row > .col-md-8 > .card .btn-link {
+    display: block;
+    margin-top: 12px;
+}
+
+
+
+main .container > .row > .col-md-8 > .card .row.mb-0 {
+    display: flex;
+    justify-content: center;
+}
+
+
+main .container > .row > .col-md-8 > .card .row.mb-0 > div {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+main .container > .row > .col-md-8 > .card .btn-link {
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+main .container > .row > .col-md-8 > .card p,
+main .container > .row > .col-md-8 > .card a {
+    text-align: center;
+}
+
+
+
+
